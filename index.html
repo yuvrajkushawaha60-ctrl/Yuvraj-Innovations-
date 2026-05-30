@@ -2256,7 +2256,60 @@ window.verifyAdminFromFirestore = async function(inputPw){
     }
   }
 };
+<!-- ===== WHITE/BLACK PAGE TOGGLE BUTTON ===== -->
+<style>
+  #theme-toggle-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+    border: 1.5px solid #d1d5db;
+    font-family: inherit;
+  }
+  #theme-toggle-btn button {
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  #btn-white { background: #ffffff; color: #1a1a1a; border-bottom: 1px solid #e5e7eb; }
+  #btn-black { background: #1a1a1a; color: #f5f5f5; }
+  #btn-white.active { background: #e0e7ff; color: #2563eb; }
+  #btn-black.active { background: #2563eb; color: #fff; }
+</style>
 
+<div id="theme-toggle-btn">
+  <button id="btn-white" onclick="setTheme('white')">☀ White Page</button>
+  <button id="btn-black" onclick="setTheme('black')">🌙 Black Page</button>
+</div>
+
+<script>
+  // Shuruaat mein white mode
+  document.getElementById('btn-white').classList.add('active');
+
+  function setTheme(mode) {
+    if (mode === 'black') {
+      document.body.style.background = '#111827';
+      document.body.style.color = '#f3f4f6';
+      document.getElementById('btn-black').classList.add('active');
+      document.getElementById('btn-white').classList.remove('active');
+    } else {
+      document.body.style.background = '#ffffff';
+      document.body.style.color = '#1a1a1a';
+      document.getElementById('btn-white').classList.add('active');
+      document.getElementById('btn-black').classList.remove('active');
+    }
+  }
+</script>
+<!-- ===== END TOGGLE ===== -->
 console.log('✅ Firebase v8 connected: yuvraj-innovations');
 </script>
 </body>
